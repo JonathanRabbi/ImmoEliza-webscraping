@@ -4,12 +4,15 @@ import re
 import json
 
 
+root_url = "https://www.immoweb.be/"
+status_url = root_url + "status"
+
 leaders_per_country = {}
 
 def get_leaders():
     """This function retrieves a dictionary of leaders from country-leaders.onrender.com inlcuding all leaders and all their information and adds the first paragraph on that country leader from wikipedia"""
     #define the urls
-    root_url = "https://country-leaders.onrender.com/"
+    root_url = "https://www.immoweb.be/"
     status_url = root_url + "status"
     countries_url = root_url + "countries"
     cookie_url = root_url + "cookie"
