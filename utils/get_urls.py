@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from lxml import etree
 import requests
 from random import randint
+import time
 from time import sleep
 import json
 
@@ -47,26 +48,34 @@ def page_list_to_full_list(full_list, properties_per_page):
     print("list length: ",len(full_list))
     return full_list
 
-def add_to_file(properties_per_page):
+"""def add_to_file(properties_per_page):
     with open('20k_belgium_url_list.json', 'a') as output_file:
-        json.dump(properties_per_page, output_file)
+        json.dump(properties_per_page, output_file)"""
+
+def add_to_file(properties_per_page):
+    with open('10k_belgium_url_list.txt', 'a') as output_file:
+        for line in properties_per_page:
+            output_file.write(f"{line}\n")
+
 
 def run_through_pages():
     """Scrapes property urls from search results page after page"""
     full_list = []
-    for i in range (1,666):
+    for i in range (113,335):
+        sleep(randint(1,3))
         page_url = base_url + str(i)
         site_model = get_model(page_url)
         properties_per_page = get_property_list(site_model)
         #print(full_list)
-        #full_list = page_list_to_full_list(full_list, properties_per_page)
+        full_list = page_list_to_full_list(full_list, properties_per_page)
         add_to_file(properties_per_page)
         print(i)
-    return #full_list
+    return full_list
 
 
-
+start = time.time()
 final_list = run_through_pages()
 #print("final list:", final_list)
 #print("final list length: ",len(final_list))
-
+end = time.time()
+print("Time Taken: {:.6f}s".format(end-start))
