@@ -31,8 +31,9 @@ def get_property_list():
     print("items on this page: ", len(unique_properties_per_page))
 
 def run_through_pages():
+    """Scrapes property urls from search results page after page"""
     for i in range (1,6):
-    page_url = base_url + str(i)
-    print(page_url)
+        page_url = base_url + str(i)
+        print(page_url)
 
 def page_list_to_full_list
