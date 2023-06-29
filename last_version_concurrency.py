@@ -4,8 +4,8 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 
-list_urls = ['https://www.immoweb.be/en/classified/house/for-sale/aywaille%20sougn%C3%A9-remouchamps/4920/10663667', 'https://www.immoweb.be/en/classified/villa/for-sale/aywaille/4920/10661605', 'https://www.immoweb.be/en/classified/villa/for-sale/aywaille/4920/10660061', 'https://www.immoweb.be/en/classified/house/for-sale/aywaille/4920/10660060']
-things = ['Locality', 'Bedrooms', 'Construction year', 'Building condition', 'Number of frontages', 'Outdoor parking space', 'Bathrooms', 'Shower rooms', 'Office', 'Toilets', 'Kitchen type', 'Furnished', 'Terrace', 'Heating type', 'Price', 'External reference', 'Address', 'Energy class', 'Primary energy consumption']
+list_urls = ['https://www.immoweb.be/en/classified/house/for-sale/aywaille%20sougn%C3%A9-remouchamps/4920/10663667', 'https://www.immoweb.be/en/classified/villa/for-sale/aywaille/4920/10661605', 'https://www.immoweb.be/en/classified/villa/for-sale/aywaille/4920/10660061', 'https://www.immoweb.be/en/classified/house/for-sale/aywaille/4920/10660060', 'https://www.immoweb.be/en/classified/apartment/for-sale/jambes/5100/10667600']
+things = ['Price', 'Address', 'Locality', 'Bedrooms',  'Energy class', 'Primary energy consumption','Furnished' ,'Terrace', 'Terrace surface', 'Surface of the plot', 'Living room surface', 'Number of frontages','Construction year', 'Building condition', 'Outdoor parking space', 'Bathrooms', 'Shower rooms', 'Office', 'Toilets', 'Kitchen type', 'Heating type',]
 list_of_needed = []
 
 

@@ -1,5 +1,6 @@
-Locality,Bedrooms,Construction year,Building condition,Number of frontages,Outdoor parking space,Bathrooms,Shower rooms,Office,Toilets,Kitchen type,Furnished,Terrace,Heating type,Price,External reference,Address,Energy class,Primary energy consumption
-0,1,1899,To be done up,2,0,1,1,Yes,1,Not installed,No,Yes,Electric,"€ 159,000",5394692,Voie de L'air Pur 211,G,
-0,4,1959,To renovate,4,0,2,0,0,1,Hyper equipped,0,0,Fuel oil,"€ 319,000",0,Rue de la Cathédrale 17,F,
-0,3,2023,0,4,0,1,0,0,0,Not installed,No,Yes,0,"€ 399,990",5416044,Avenue Louis Libert 1,Not specified,Not specified
-0,2,0,Good,2,0,1,0,0,0,Installed,No,Yes,Fuel oil,"€ 219,000",5398398,Avenue Louis Libert 1,E,
+Price,Address,Locality,Bedrooms,Energy class,Primary energy consumption,Furnished,Terrace,Terrace surface,Surface of the plot,Living room surface,Number of frontages,Construction year,Building condition,Outdoor parking space,Bathrooms,Shower rooms,Office,Toilets,Kitchen type,Heating type
+"€ 159,000",Voie de L'air Pur 211,0,1,G,,No,Yes,0,,,2,1899,To be done up,0,1,1,Yes,1,Not installed,Electric
+"€ 319,000",Rue de la Cathédrale 17,0,4,F,,0,0,,,0,4,1959,To renovate,0,2,0,0,1,Hyper equipped,Fuel oil
+"€ 399,990",Avenue Louis Libert 1,0,3,Not specified,Not specified,No,Yes,0,,,4,2023,0,0,1,0,0,0,Not installed,0
+"€ 219,000",Avenue Louis Libert 1,0,2,E,,No,Yes,0,,,2,0,Good,0,1,0,0,0,Installed,Fuel oil
+"€ 225,000",Av. Albert 1er 2a,0,1,C,,0,0,,0,,0,2011,0,0,0,1,0,1,0,Gas
