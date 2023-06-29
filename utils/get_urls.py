@@ -3,6 +3,8 @@
 from bs4 import BeautifulSoup
 from lxml import etree
 import requests
+from random import randint
+from time import sleep
 
 # Variables
 ###########
@@ -10,7 +12,7 @@ import requests
 # html_text= requests.get('https://www.immoweb.be/en/classified/exceptional-property/for-sale/antwerp/2000/10591004').text  #property result used as example by Jonathan
 # "https://www.immoweb.be/en/search/house-and-apartment/for-sale?countries=BE&orderBy=newest&page=1" #starting point for all housing properties of Belgium, sorted starting from newest
 # "https://www.immoweb.be/en/search/house-and-apartment/for-sale/Theux/4910?countries=BE&page=1&orderBy=newest"   #4910 to have a pool of (47) but some oddball properties like castle, farmhouse and duplex
-base_url = 'https://www.immoweb.be/en/search/house-and-apartment/for-sale?countries=BE&postalCodes=BE-4920,4910&orderBy=newest&page='     #4910 & 4920 to have 5 result pages, 112 results
+base_url = 'https://www.immoweb.be/en/search/house-and-apartment/for-sale?countries=BE&postalCodes=BE-4920,4910,4000&orderBy=newest&page='     #4910 & 4920 to have 5 result pages, 112 results
 page_url = base_url #will get a page NUMBER attached later, but this way page_url can be called already, immoweb does not mind the missing page number
 
 
@@ -20,20 +22,42 @@ def get_model(page_url):
     #print(html_text)
     soup = BeautifulSoup(html_text, 'html.parser') 
     site_model = etree.HTML(str(soup))
+    return site_model
 
-def get_property_list():
+
+def get_property_list(site_model):
     """extract the urls of all search results from the page"""
     properties_per_page = site_model.xpath('//main/div//a[@class="card__title-link"]/@href') #creates a list of all search results (and excludes "similar properties" and "sponsored properties" )
     print(properties_per_page)
-    print("items on this page: ", len(properties_per_page))
-    unique_properties_per_page = list(set(properties_per_page)) #create a list of unique properties by creating a set and turning that into a list again
+    #print("items on this page: ", len(properties_per_page))
+    """unique_properties_per_page = list(set(properties_per_page)) #create a list of unique properties by creating a set and turning that into a list again
     print(unique_properties_per_page)
     print("items on this page: ", len(unique_properties_per_page))
+    properties_per_page = unique_properties_per_page"""
+    return properties_per_page
+
+def page_list_to_full_list(full_list, properties_per_page):
+    """adds urls to the full list of urls"""
+    #print(full_list)
+    #print(type(unique_properties_per_page))
+    full_list.extend(unique_properties_per_page)
+    #print(full_list)
+    print("list length: ",len(full_list))
+    return full_list
 
 def run_through_pages():
     """Scrapes property urls from search results page after page"""
-    for i in range (1,6):
+    full_list = []
+    for i in range (1,30):
         page_url = base_url + str(i)
-        print(page_url)
+        site_model = get_model(page_url)
+        properties_per_page = get_property_list(site_model)
+        #print(full_list)
+        full_list = page_list_to_full_list(full_list, properties_per_page)
+        print(i)
+    return full_list
 
-def page_list_to_full_list
+
+
+final_list = run_through_pages()
+print("full list:", final_list)
