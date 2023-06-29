@@ -1,0 +1,4 @@
+Price,Address,Locality,Bedrooms,Energy class,Primary energy consumption,Furnished,Terrace,Terrace surface,Surface of the plot,Living room surface,Number of frontages,Construction year,Building condition,Outdoor parking space,Bathrooms,Shower rooms,Office,Toilets,Kitchen type,Heating type,immo_code
+€225000,Av. Albert 1er 2a,0,1,C,250,0,0,20,0,23,0,2011,0,0,0,1,0,1,0,Gas,['10667600']
+€157000,place de la Victoire 15,0,2,E,405,No,0,11,0,0,3,0,0,0,1,0,No,1,Installed,0,['10667595']
+€299000,Route du Condroz 151,0,2,G,541,0,Yes,0,378,28,3,0,Good,0,1,0,0,2,Semi equipped,Fuel oil,['10667592']
