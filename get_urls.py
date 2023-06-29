@@ -20,3 +20,19 @@ def get_model(page_url):
     #print(html_text)
     soup = BeautifulSoup(html_text, 'html.parser') 
     site_model = etree.HTML(str(soup))
+
+def get_property_list():
+    """extract the urls of all search results from the page"""
+    properties_per_page = site_model.xpath('//main/div//a[@class="card__title-link"]/@href') #creates a list of all search results (and excludes "similar properties" and "sponsored properties" )
+    print(properties_per_page)
+    print("items on this page: ", len(properties_per_page))
+    unique_properties_per_page = list(set(properties_per_page)) #create a list of unique properties by creating a set and turning that into a list again
+    print(unique_properties_per_page)
+    print("items on this page: ", len(unique_properties_per_page))
+
+def run_through_pages():
+    for i in range (1,6):
+    page_url = base_url + str(i)
+    print(page_url)
+
+def page_list_to_full_list
