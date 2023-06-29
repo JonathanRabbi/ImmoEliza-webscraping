@@ -1,6 +1,31 @@
-Locality,Bedrooms,Living room surface,Kitchen type,Furnished,Terrace,Terrace surface,Surface of the plot,External reference,Address,Energy class,Primary energy consumption
-Null,1,18,Not installed,No,Yes,Null,242,5394692,Voie de L'air Pur 211,G,888
-Null,4,Null,Hyper equipped,Null,Null,40,1091,Null,Rue de la Cathédrale 17,F,86947
-Null,3,29,Not installed,No,Yes,Null,2281,5416044,Avenue Louis Libert 1,Not specified,Not specified
-Null,2,41,Installed,No,Yes,Null,134,5398398,Avenue Louis Libert 1,E,412
-Null,2,30,Installed,Null,Null,25,110,17522 - 111115201,Rue Charles Magnette 24/40,C,238
+Bedrooms,immo_code,Kitchen type,Furnished,Locality,Terrace,Terrace surface,External reference,Address,Energy class,Primary energy consumption,Price
+2,['10546224'],Null,No,Null,Null,Null,82509301,Grand Route 8,G,941,€235000
+4,['10489722'],Installed,No,Null,Null,55,Aywaille-Sedoz-47B,Rue de Plainevaux 149/1,C,232,€390000
+2,['10565907'],Null,Null,Null,Null,12,5342924,Avenue Laboulle, 32,Not specified,Not specified,€299500
+3,['10496404'],Null,No,Null,Yes,Null,5291193,Rue Julien d'Andrimont 11/4,Not specified,Not specified,€320000
+4,['10477050'],Installed,No,Null,Null,18,5289538,Rue de Ciney 168,D,299,€
+3,['10438654'],Not installed,No,Null,Null,27,5275558,Avenue Louis Libert 1,Not specified,Not specified,€330000
+2,['10422808'],Semi equipped,No,Null,Yes,Null,5246045,Avenue Louis Libert 1,E,415,€230000
+4,['10337712'],Installed,No,Null,Yes,Null,1105,Avenue de la Porallée 18/2,F,510,€455000
+4,['10442122'],Not installed,No,Null,Null,Null,5277685,Avenue Louis Libert 1,G,705,€220000
+3,['10503345'],Not installed,No,Null,Yes,Null,5312487,Avenue Louis Libert 1,G,598,€99000
+2,['10498629'],Not installed,No,Null,Null,Null,5292457,Avenue du chêne, 177,G,597,€110000
+3,['10262629'],Null,Null,Null,Null,30,7660 - 673/4191,Place Leblanc 28,E,345,€249000
+1,['10565906'],Null,Null,Null,Null,9,5342921,Avenue Laboulle, 32,Not specified,Not specified,€224500
+4,['10444701'],Semi equipped,No,Null,Null,Null,5253425,Avenue Louis Libert 1,C,217,€179000
+4,['10576010'],Installed,No,Null,Yes,Null,5347238,Rue de Herve 70,D,331,€225000
+3,['10153448'],Installed,Null,Null,Null,Null,5769 - 673/3539,Place Leblanc 28,D,295,€199000
+5,['10393318'],Hyper equipped,Null,Null,Yes,Null,5254293,Place Communale 3,E,424,€
+1,['10470638'],Semi equipped,No,Null,Null,Null,5289436,Avenue Louis Libert 1,D,340,€
+3,['10565905'],Null,Null,Null,Null,19,5342913,Avenue Laboulle, 32,Not specified,Not specified,€374500
+4,['10395673'],Null,No,Null,Null,55,W3826,Avenue Franklin Roosevelt 22A,A,77,€475000
+2,['10433041'],Not installed,Null,Null,Null,Null,5274015,Avenue Louis Libert 1,G,536,€125000
+3,['10318862'],Installed,No,Null,Null,20,5142760,Voie de l'Ardenne 179,C,249,€
+3,['10565857'],Hyper equipped,No,Null,Yes,Null,5335215,Avenue Louis Libert 1,C,221,€339000
+4,['10439166'],Installed,No,Null,Null,Null,1335,Avenue de la Porallée 18/2,F,446,€179000
+2,['10563359'],Not installed,Yes,Null,Null,Null,5304552,Avenue Louis Libert 1,G,642,€155000
+1,['10555783'],Semi equipped,Null,Null,Null,Null,2815 - 2499,Rue de Hotton, 22,E,418,€129000
+2,['10429671'],Null,Null,Null,Null,60,481 - 1730,Chaussée Roosevelt 11,F,469,€169000
+2,['10436121'],Installed,No,Null,Null,15,Null,Rue du Vieux-Mayeur 51,C,187,€210000
+1,['10565904'],Null,Null,Null,Null,10,5342911,Avenue Laboulle, 32,Not specified,Not specified,€199500
+4,['10486111'],USA hyper equipped,Null,Null,Yes,Null,5299571,Place Communale 3,A,77,€
