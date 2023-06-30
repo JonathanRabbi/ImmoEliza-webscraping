@@ -72,4 +72,4 @@ def details_of_house(url):
         print(results)
 
     df=pd.DataFrame(results)
-    df.to_csv('scraped_data.csv', index=False)
+    df.to_csv('scraped_data_3.csv', index=False)
