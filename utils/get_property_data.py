@@ -77,9 +77,9 @@ with ThreadPoolExecutor(max_workers=10) as executor:
         print("skipped urls: ", skipped_urls)
 
 df = pd.DataFrame(results)
+df.to_csv("temp_dump.csv", index=False)
 creator = "DeFre"    #change creator to name of creator to ensure unique filename
 timestamp = time.strftime("%Y%m%d-%H%M%S") #add date and time of creation
 output_path = "data/"      #leave empty to save the file in the same folder as your code, 
 output_filename = output_path + "scraped_data_" + creator + timestamp + ".csv" #assemble filename
 df.to_csv(output_filename, index=False)
-df.to_csv("temp_dump.csv", index=False)
