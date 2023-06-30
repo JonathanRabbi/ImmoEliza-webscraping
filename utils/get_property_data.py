@@ -55,14 +55,13 @@ def details_of_house(url):
     except:
         print("error: skipped a line: " + url)
         skipped_urls.append(url)
-        return skipped_urls
-    return needed_things, skipped_urls
+    return needed_things
 
 with open("sliceover10k.txt", 'r') as input_file:   #source file for scraping
     l = [line.rstrip() for line in input_file]      #check list name
 """l = [
     'https://www.immoweb.be/en/classified/apartment/for-sale/jambes/5100/10667600',
-    'https://www.immoweb.be/en/classified/house/for-sale/fontaine-l%27ev%C3%AAque/6140/10667595',
+    'https://www.immoweb.be/en/classified/house/for-sale/fontaine-l%27ev%C3%AAque/6140/10667595', 'https://www.immoweb.be/en/classified/house/for-sale/gavere/9890/10622486', 
     'https://www.immoweb.be/en/classified/house/for-sale/neuville-en-condroz/4121/10667592']"""
 
 results = []
@@ -83,3 +82,4 @@ timestamp = time.strftime("%Y%m%d-%H%M%S") #add date and time of creation
 output_path = "data/"      #leave empty to save the file in the same folder as your code, 
 output_filename = output_path + "scraped_data_" + creator + timestamp + ".csv" #assemble filename
 df.to_csv(output_filename, index=False)
+df.to_csv("temp_dump.csv", index=False)
