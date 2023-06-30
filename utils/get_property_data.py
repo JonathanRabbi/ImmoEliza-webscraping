@@ -10,12 +10,13 @@ skipped_urls = []
 def needed(needed_things):
     list_of_needed = []
     list_of_needed.append(needed_things)
-    print(needed_things)
+    #print(needed_things)
 
 def details_of_house(url):
     list_of_header = []
     list_of_data = []
     needed_things = {}
+    print(l)
     things = ['Price', 'Address', 'Bedrooms',  'Energy class', 'Primary energy consumption','Furnished' ,'Terrace', 'Terrace surface', 'Surface of the plot', 'Living room surface', 'Number of frontages','Construction year', 'Building condition', 'Outdoor parking space', 'Bathrooms', 'Shower rooms', 'Office', 'Toilets', 'Kitchen type', 'Heating type',]
     
     try:
@@ -59,13 +60,15 @@ def details_of_house(url):
         print("error: skipped a line: " + url)
         skipped_urls.append(url)
     return needed_things
+    
+    
 
-"""with open("3781_belgium_url_list.txt", 'r') as input_file:   #source file for scraping
-    l = [line.rstrip() for line in input_file]      #check list name"""
-l = [
+with open("sliceover10k.txt", 'r') as input_file:   #source file for scraping
+    l = [line.rstrip() for line in input_file]      #check list name
+"""l = [
     'https://www.immoweb.be/en/classified/apartment/for-sale/jambes/5100/10667600',
     'https://www.immoweb.be/en/classified/house/for-sale/fontaine-l%27ev%C3%AAque/6140/10667595', 'https://www.immoweb.be/en/classified/house/for-sale/gavere/9890/10622486', 
-    'https://www.immoweb.be/en/classified/house/for-sale/neuville-en-condroz/4121/10667592']
+    'https://www.immoweb.be/en/classified/house/for-sale/neuville-en-condroz/4121/10667592']"""
 
 results = []
 
@@ -74,7 +77,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
         futures = [executor.submit(details_of_house, url) for url in l]
         results = [item.result() for item in futures]
         end = time.time()
-        print(results)
+        #print(results)
         print("Time Taken: {:.6f}s".format(end - start))
         print("skipped urls: ", skipped_urls)
 
@@ -82,7 +85,7 @@ df = pd.DataFrame(results)
 df.to_csv("temp_dump.csv", index=False)
 creator = "DeFre"    #change creator to name of creator to ensure unique filename
 timestamp = time.strftime("%Y%m%d-%H%M%S") #add date and time of creation
-output_path = "data/"      #leave empty to save the file in the same folder as your code, 
+output_path = "data/"     #leave empty to save the file in the same folder as your code, 
 output_filename = output_path + "scraped_data_" + timestamp + creator + ".csv" #assemble filename
 df.to_csv(output_filename, index=False)
 
