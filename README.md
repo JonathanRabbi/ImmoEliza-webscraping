@@ -34,18 +34,14 @@ To run the code, you will need to install/import the following:
 <li>Time</li>
 
 <h2>Criteria</h2>
-| Criteria       | Indicator                                  | Yes/No   |
-| -------------- | ------------------------------------------ | ------   |
-| 1. Is complete | Contains a minimum of 10,000 inputs.       | [yes]    |
-|                | Contains data for all of Belgium.          | [yes]    |
-|                | No empty row present in the dataset.       | [no]     |
-|                | Non-numeric values have been minimized.    | [yes]    |
-| 2. Is great    | Used threading to speed up the collection. | [yes]    |
+<li>Contains a minimum of 10,000 inputs- yes </li>
+<li>Contains data for all of Belgium-yes </li>
+<li>Non-numeric values have been minimized-yes </li>
+<li>Used threading to speed up the collection-yes</li>
 
 <h2>Personal situation</h2>
-- Repository        :   `challenge-collecting-data`
-- Type of Challenge :   `Consolidation`
-- Team Challenge    :   `Group`
-- Team Members      :   `Fré Van Oers`
-                        `Jonathan_Rab`
-                        `Mythili`
+<li>Repository        :   `challenge-collecting-data`</li>
+<li>Type of Challenge :   `Consolidation`</li>
+<li>Team Challenge    :   `Group`</li>
+<li>Team Members      :   `Fré Van Oers`, `Jonathan_Rab`, `Mythili`</li>
+                            
