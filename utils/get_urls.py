@@ -53,7 +53,7 @@ def page_list_to_full_list(full_list, properties_per_page):
         json.dump(properties_per_page, output_file)"""
 
 def add_to_file(properties_per_page):
-    with open('10k_belgium_url_list.txt', 'a') as output_file:
+    with open('20230630_url_list.txt', 'a') as output_file:
         for line in properties_per_page:
             output_file.write(f"{line}\n")
 
@@ -61,7 +61,7 @@ def add_to_file(properties_per_page):
 def run_through_pages():
     """Scrapes property urls from search results page after page"""
     full_list = []
-    for i in range (113,335):
+    for i in range (1,333):
         sleep(randint(1,3))
         page_url = base_url + str(i)
         site_model = get_model(page_url)

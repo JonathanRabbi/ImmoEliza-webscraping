@@ -6,7 +6,6 @@ import pandas as pd
 import re
 
 skipped_urls = []
-
 def needed(needed_things):
     list_of_needed = []
     list_of_needed.append(needed_things)
@@ -24,14 +23,13 @@ def details_of_house(url):
 
         text = soup.get_text()
         splited_text = text.split()
-    
+
         all_data = soup.find_all('td', class_='classified-table__data')
         all_header = soup.find_all('th', class_='classified-table__header')
-        immoweb_code_text = soup.find(class_='classified__header--immoweb-code').text.strip()
         codes = re.findall('([0-9]+)',url)
         postal_code = codes[0]
         immo_code = codes[1]
-        
+
         for header in all_header:
             list_of_header.append(header.contents[0].strip())
 
@@ -54,33 +52,34 @@ def details_of_house(url):
         needed_things['immo_code'] = immo_code
         needed_things['postal code'] = postal_code
         
-        needed(needed_things)
+        needed(needed_things)  
     except:
-        print("error: skipped a line: " + url)
-        skipped_urls.append(url)
+         print('error: skipped a line:' +url)
+         skipped_urls.append(url)
     return needed_things
 
-with open("3781_belgium_url_list.txt", 'r') as input_file:   #source file for scraping
-    l = [line.rstrip() for line in input_file]      #check list name
+
+with open("sliceover10K.txt", 'r') as input_file:  
+        l = [line.rstrip() for line in input_file] 
 """l = [
     'https://www.immoweb.be/en/classified/apartment/for-sale/jambes/5100/10667600',
     'https://www.immoweb.be/en/classified/house/for-sale/fontaine-l%27ev%C3%AAque/6140/10667595', 'https://www.immoweb.be/en/classified/house/for-sale/gavere/9890/10622486', 
-    'https://www.immoweb.be/en/classified/house/for-sale/neuville-en-condroz/4121/10667592']"""
-
-results = []
+    'https://www.immoweb.be/en/classified/house/for-sale/neuville-en-condroz/4121/10667592']    """
+        
+House_details = []
 
 with ThreadPoolExecutor(max_workers=10) as executor:
         start = time.time()
         futures = [executor.submit(details_of_house, url) for url in l]
-        results = [item.result() for item in futures]
+        House_details = [item.result() for item in futures]
         end = time.time()
-        print(results)
+        print(House_details)
         print("Time Taken: {:.6f}s".format(end - start))
         print("skipped urls: ", skipped_urls)
 
-df = pd.DataFrame(results)
-df.to_csv("temp_dump.csv", index=False)
-creator = "DeFre"    #change creator to name of creator to ensure unique filename
+df = pd.DataFrame(House_details)
+df.to_csv('scraped_data_6.csv', index=False)
+creator = "JonCode"    #change creator to name of creator to ensure unique filename
 timestamp = time.strftime("%Y%m%d-%H%M%S") #add date and time of creation
 output_path = "data/"      #leave empty to save the file in the same folder as your code, 
 output_filename = output_path + "scraped_data_" + timestamp + creator + ".csv" #assemble filename
