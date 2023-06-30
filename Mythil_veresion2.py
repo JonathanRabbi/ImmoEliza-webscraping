@@ -13,7 +13,7 @@ def needed(needed_things):
 def details_of_house(url):
     list_of_header = []
     list_of_data = []
-    things = ['Price', 'Address', 'Locality', 'Bedrooms',  'Energy class', 'Primary energy consumption','Furnished' ,'Terrace', 'Terrace surface', 'Surface of the plot', 'Living room surface', 'Number of frontages','Construction year', 'Building condition', 'Outdoor parking space', 'Bathrooms', 'Shower rooms', 'Office', 'Toilets', 'Kitchen type', 'Heating type',]
+    things = ['Price', 'Address', 'Bedrooms',  'Energy class', 'Primary energy consumption','Furnished' ,'Terrace', 'Terrace surface', 'Surface of the plot', 'Living room surface', 'Number of frontages','Construction year', 'Building condition', 'Outdoor parking space', 'Bathrooms', 'Shower rooms', 'Office', 'Toilets', 'Kitchen type', 'Heating type',]
     
     
     html_text = requests.get(url)
@@ -52,20 +52,19 @@ def details_of_house(url):
     
     return needed_things
 
-l = [
-    'https://www.immoweb.be/en/classified/apartment/for-sale/jambes/5100/10667600',
-    'https://www.immoweb.be/en/classified/house/for-sale/fontaine-l%27ev%C3%AAque/6140/10667595',
-    'https://www.immoweb.be/en/classified/house/for-sale/neuville-en-condroz/4121/10667592']
+with open("sliceover10k.txt", 'r') as input_file:  
+        l = [line.rstrip() for line in input_file] 
+        
 
-results = []
+House_details = []
 
 with ThreadPoolExecutor(max_workers=10) as executor:
         start = time.time()
         futures = [executor.submit(details_of_house, url) for url in l]
-        results = [item.result() for item in futures]
+        House_details = [item.result() for item in futures]
         end = time.time()
         print("Time Taken: {:.6f}s".format(end - start))
-        print(results)
+        print(House_details)
 
-df = pd.DataFrame(results)
-df.to_csv('scraped_data3.csv', index=False)
+df = pd.DataFrame(House_details)
+df.to_csv('scraped_data_5.csv', index=False)
