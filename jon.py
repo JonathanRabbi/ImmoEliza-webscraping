@@ -55,7 +55,7 @@ def details_of_house(url):
     
     return needed_things
 
-with open("sliceover10k.txt", 'r') as input_file:  
+with open("4k.txt", 'r') as input_file:  
         l = [line.rstrip() for line in input_file] 
         
 
@@ -70,7 +70,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
         print(House_details)
 
 df = pd.DataFrame(House_details)
-df.to_csv('scraped_data_5.csv', index=False)
+df.to_csv('scraped_data_1.csv', index=False)
 
 """ # """
     
