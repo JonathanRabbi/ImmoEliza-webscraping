@@ -51,26 +51,33 @@ def details_of_house(url):
         needed_things['immo_code'] = immo_code
         needed_things['postal code'] = postal_code
         
-        needed(needed_things)  
+        needed(needed_things)
+        return needed_things 
     except:
-         print('error: skipped a line:' +url)
-         skipped_urls.append(url)
-    return needed_things
+        print('error: skipped a line:' + url)
+        skipped_urls.append(url)
+        return None
+    
 
 
-with open("sliceover10K.txt", 'r') as input_file:  
+with open("skipped_urls.txt", 'r') as input_file:  
         l = [line.rstrip() for line in input_file] 
+
         
 House_details = []
 
 with ThreadPoolExecutor(max_workers=10) as executor:
         start = time.time()
         futures = [executor.submit(details_of_house, url) for url in l]
-        House_details = [item.result() for item in futures]
+        House_details = [item.result() for item in futures if item is not None]
         end = time.time()
-        print(House_details)
+        print('House_details',House_details)
         print("Time Taken: {:.6f}s".format(end - start))
         print("skipped urls: ", skipped_urls)
 
 df = pd.DataFrame(House_details)
-df.to_csv('scraped_data_6.csv', index=False)
+df.to_csv('scraped_data_10.csv', index=False)
+
+with open('skipped_urls.txt', 'a') as output_file:
+    for line in skipped_urls:
+        output_file.write(f"{line}\n")
