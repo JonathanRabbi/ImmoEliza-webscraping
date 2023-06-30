@@ -28,7 +28,6 @@ def details_of_house(url):
         all_data = soup.find_all('td', class_='classified-table__data')
         all_header = soup.find_all('th', class_='classified-table__header')
         immoweb_code_text = soup.find(class_='classified__header--immoweb-code').text.strip()
-        #immo_code = re.findall('([0-9]+)', immoweb_code_text)
         codes = re.findall('([0-9]+)',url)
         postal_code = codes[0]
         immo_code = codes[1]
@@ -61,7 +60,7 @@ def details_of_house(url):
         skipped_urls.append(url)
     return needed_things
 
-with open("sliceover10k.txt", 'r') as input_file:   #source file for scraping
+with open("3781_belgium_url_list.txt", 'r') as input_file:   #source file for scraping
     l = [line.rstrip() for line in input_file]      #check list name
 """l = [
     'https://www.immoweb.be/en/classified/apartment/for-sale/jambes/5100/10667600',
@@ -84,5 +83,5 @@ df.to_csv("temp_dump.csv", index=False)
 creator = "DeFre"    #change creator to name of creator to ensure unique filename
 timestamp = time.strftime("%Y%m%d-%H%M%S") #add date and time of creation
 output_path = "data/"      #leave empty to save the file in the same folder as your code, 
-output_filename = output_path + "scraped_data_" + creator + timestamp + ".csv" #assemble filename
+output_filename = output_path + "scraped_data_" + timestamp + creator + ".csv" #assemble filename
 df.to_csv(output_filename, index=False)
