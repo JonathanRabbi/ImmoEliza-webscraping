@@ -16,7 +16,7 @@ def details_of_house(url):
     list_of_header = []
     list_of_data = []
     needed_things = {}
-    things = ['Price', 'Address', 'Locality', 'Bedrooms',  'Energy class', 'Primary energy consumption','Furnished' ,'Terrace', 'Terrace surface', 'Surface of the plot', 'Living room surface', 'Number of frontages','Construction year', 'Building condition', 'Outdoor parking space', 'Bathrooms', 'Shower rooms', 'Office', 'Toilets', 'Kitchen type', 'Heating type',]
+    things = ['Price', 'Address', 'Bedrooms',  'Energy class', 'Primary energy consumption','Furnished' ,'Terrace', 'Terrace surface', 'Surface of the plot', 'Living room surface', 'Number of frontages','Construction year', 'Building condition', 'Outdoor parking space', 'Bathrooms', 'Shower rooms', 'Office', 'Toilets', 'Kitchen type', 'Heating type',]
     
     try:
         html_text = requests.get(url)
@@ -28,7 +28,10 @@ def details_of_house(url):
         all_data = soup.find_all('td', class_='classified-table__data')
         all_header = soup.find_all('th', class_='classified-table__header')
         immoweb_code_text = soup.find(class_='classified__header--immoweb-code').text.strip()
-        immo_code = re.findall('([0-9]+)', immoweb_code_text)
+        #immo_code = re.findall('([0-9]+)', immoweb_code_text)
+        codes = re.findall('([0-9]+)',url)
+        postal_code = codes[0]
+        immo_code = codes[1]
         
         for header in all_header:
             list_of_header.append(header.contents[0].strip())
@@ -50,6 +53,7 @@ def details_of_house(url):
                 needed_things[element] = 0
         
         needed_things['immo_code'] = immo_code
+        needed_things['postal code'] = postal_code
         
         needed(needed_things)
     except:
@@ -71,7 +75,6 @@ with ThreadPoolExecutor(max_workers=10) as executor:
         futures = [executor.submit(details_of_house, url) for url in l]
         results = [item.result() for item in futures]
         end = time.time()
-        print("Time Taken: {:.6f}s".format(end - start))
         print(results)
         print("Time Taken: {:.6f}s".format(end - start))
         print("skipped urls: ", skipped_urls)
