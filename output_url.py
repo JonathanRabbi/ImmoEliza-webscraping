@@ -12,7 +12,11 @@ import json
 ###########
 
 # html_text= requests.get('https://www.immoweb.be/en/classified/exceptional-property/for-sale/antwerp/2000/10591004').text  #property result used as example by Jonathan
-base_url = "https://www.immoweb.be/en/search/house-and-apartment/for-sale?countries=BE&orderBy=newest&page=" #starting point for all housing properties of Belgium, sorted starting from newest
+house-and-apartment_url = "https://www.immoweb.be/en/search/house-and-apartment/for-sale?countries=BE&orderBy=newest&page=" #starting point for all housing properties of Belgium, sorted starting from newest
+house_url = "https://www.immoweb.be/en/search/house/for-sale?countries=BE&orderBy=newest&page="
+apartment_url = "https://www.immoweb.be/en/search/apartment/for-sale?countries=BE&orderBy=newest&page="
+base_url = house-and-apartment_url #if nothing else is specified, the query will run on the mix of apartments and houses
+
 # "https://www.immoweb.be/en/search/house-and-apartment/for-sale/Theux/4910?countries=BE&page=1&orderBy=newest"   #4910 to have a pool of (47) but some oddball properties like castle, farmhouse and duplex
 # base_url = 'https://www.immoweb.be/en/search/house-and-apartment/for-sale?countries=BE&postalCodes=BE-4920,4910,4000&orderBy=newest&page='     #4910 & 4920 to have 5 result pages, 112 results
 page_url = base_url #will get a page NUMBER attached later, but this way page_url can be called already, immoweb does not mind the missing page number
