@@ -66,7 +66,6 @@ def run_through_pages():
     """Scrapes property urls from search results page after page"""
     full_list = []
     for i in range (1,334):
-        sleep(randint(1,3))
         page_url = base_url + str(i)
         site_model = get_model(page_url)
         properties_per_page = get_property_list(site_model)
