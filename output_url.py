@@ -57,7 +57,7 @@ def page_list_to_full_list(full_list, properties_per_page):
         json.dump(properties_per_page, output_file)"""
 
 def add_to_file(properties_per_page):
-    with open('10k_belgium_url_list.txt', 'a') as output_file:
+    with open('url_list.txt', 'a') as output_file:
         for line in properties_per_page:
             output_file.write(f"{line}\n")
 

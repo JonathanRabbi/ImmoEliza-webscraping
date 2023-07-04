@@ -60,7 +60,7 @@ def details_of_house(url):
     
 
 
-with open("skipped_urls.txt", 'r') as input_file:  
+with open("url_list.txt", 'r') as input_file:  
         l = [line.rstrip() for line in input_file] 
 
         
