@@ -64,7 +64,7 @@ House_details = []
 with ThreadPoolExecutor(max_workers=10) as executor:
         start = time.time()
         futures = [executor.submit(details_of_house, url) for url in l]
-        House_details = [item.result() for item in futures]
+        House_details = [item.result() for item in futures if item.result() is not None] #vanessa
         end = time.time()
         print("Time Taken: {:.6f}s".format(end - start))
         print(House_details)

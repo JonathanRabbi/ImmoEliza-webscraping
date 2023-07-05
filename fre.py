@@ -63,7 +63,7 @@ def details_of_house(url):
         skipped_urls.append(url)
         return None
 
-with open("4k.txt", 'r') as input_file:   #source file for scraping
+with open("10k.txt", 'r') as input_file:   #source file for scraping
     l = [line.rstrip() for line in input_file]      #check list name
 """l = [
     'https://www.immoweb.be/en/classified/apartment/for-sale/jambes/5100/10667600',
@@ -75,14 +75,14 @@ results = []
 with ThreadPoolExecutor(max_workers=10) as executor:
         start = time.time()
         futures = [executor.submit(details_of_house, url) for url in l]
-        results = [item.result() for item in futures if item is not None]
+        results = [item.result() for item in futures if item.result() is not None]
         end = time.time()
         print(results)
         print("Time Taken: {:.6f}s".format(end - start))
         print("skipped urls: ", skipped_urls)
 
 df = pd.DataFrame(results)
-df.to_csv("fre4k4.csv", index=False)
+df.to_csv("fre10k.csv", index=False)
 
 with open('skipped_urls.txt', 'a') as output_file:
     for line in skipped_urls:
