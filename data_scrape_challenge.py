@@ -60,7 +60,7 @@ def details_of_house(url):
     
 
 
-with open("skipped_urls.txt", 'r') as input_file:  
+with open("10K_properties.txt", 'r') as input_file:  
         l = [line.rstrip() for line in input_file] 
 
         
@@ -69,7 +69,7 @@ House_details = []
 with ThreadPoolExecutor(max_workers=10) as executor:
         start = time.time()
         futures = [executor.submit(details_of_house, url) for url in l]
-        House_details = [item.result() for item in futures if item is not None]
+        House_details = [item.result() for item in futures if item.result() is not None]
         end = time.time()
         print('House_details',House_details)
         print("Time Taken: {:.6f}s".format(end - start))
