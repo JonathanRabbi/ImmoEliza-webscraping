@@ -73,7 +73,7 @@ def details_of_house(url):
     
 
 #getting list of url from text file
-with open("10k.txt", 'r') as input_file:  
+with open("150.txt", 'r') as input_file:  
         l = [line.rstrip() for line in input_file] 
 
         
@@ -91,7 +91,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
 
 #creating csv
 df = pd.DataFrame(House_details)
-df.to_csv('scraped_data_10.csv', index=False)
+df.to_csv('150.csv', index=False)
 
 #collecting skipped url 
 with open('skipped.txt', 'a') as output_file:
